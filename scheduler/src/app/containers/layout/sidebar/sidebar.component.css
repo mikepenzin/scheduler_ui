@@ -1,0 +1,18 @@
+.special-menu a{
+  color: var(--white);
+  background: var(--theme-color-2);
+}
+
+.special-menu a:hover{
+  color: var(--white);
+  background: var(--theme-color-1);
+}
+
+.menu .main-menu ul li.special-menu.active:after {
+  background: var(--white);
+  color: var(--white);
+}
+
+li.special-menu.active a {
+  color: var(--white);
+}
