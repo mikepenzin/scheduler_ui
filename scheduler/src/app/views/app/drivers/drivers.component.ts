@@ -3,8 +3,7 @@ import { DriversService } from './service/drivers.service';
 
 @Component({
   selector: 'app-drivers',
-  templateUrl: './drivers.component.html',
-  styleUrls: ['./drivers.component.scss']
+  templateUrl: './drivers.component.html'
 })
 export class DriversComponent implements OnInit {
 

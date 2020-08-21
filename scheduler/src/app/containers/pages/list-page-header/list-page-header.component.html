@@ -84,11 +84,11 @@
 
         <div class="d-inline-block" *ngIf="showSearch">
           <div class="search-sm d-inline-block float-md-left mr-1 mb-1 align-top">
-            <input class="form-control" placeholder="Search" (keyup)="onSearchKeyUp($event)">
+            <input class="form-control" placeholder="{{ 'shared-components.search' | translate }}" (keyup)="onSearchKeyUp($event)">
           </div>
         </div>
         <div class="float-right" *ngIf="showItemsPerPage">
-          <span class="text-muted text-small">Per Page </span>
+          <span class="text-muted text-small">{{ 'shared-components.per-page' | translate }}</span>
           <span dropdown class="d-inline-block position-relative">
             <button class="btn btn-outline-dark btn-xs dropdown-toggle" type="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false" dropdownToggle>
