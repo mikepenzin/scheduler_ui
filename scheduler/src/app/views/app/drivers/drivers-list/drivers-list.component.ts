@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AddNewProductModalComponent } from 'src/app/containers/pages/add-new-product-modal/add-new-product-modal.component';
 import { HotkeysService, Hotkey } from 'angular2-hotkeys';
-import { ApiService } from 'src/app/data/api.service';
-import { IProduct } from 'src/app/data/api.service';
+import { DriversService } from '../service/drivers.service';
+import { IDriver } from '../service/drivers.service';
 import { ContextMenuComponent } from 'ngx-contextmenu';
 
 @Component({
@@ -13,21 +13,25 @@ import { ContextMenuComponent } from 'ngx-contextmenu';
 export class DriversListComponent implements OnInit {
   displayMode = 'list';
   selectAllState = '';
-  selected: IProduct[] = [];
-  data: IProduct[] = [];
+  selected: IDriver[] = [];
+  data: IDriver[] = [];
+  originalData: IDriver[] = [];
   currentPage = 1;
   itemsPerPage = 10;
   search = '';
   orderBy = '';
   isLoading: boolean;
   endOfTheList = false;
+  showDisplayMode = false;
   totalItem = 0;
   totalPage = 0;
+  prefix = 'drivers-list';
+
 
   @ViewChild('basicMenu') public basicMenu: ContextMenuComponent;
   @ViewChild('addNewModalRef', { static: true }) addNewModalRef: AddNewProductModalComponent;
 
-  constructor(private hotkeysService: HotkeysService, private apiService: ApiService) {
+  constructor(private hotkeysService: HotkeysService, private driversService: DriversService) {
     this.hotkeysService.add(new Hotkey('ctrl+a', (event: KeyboardEvent): boolean => {
       this.selected = [...this.data];
       return false;
@@ -38,29 +42,27 @@ export class DriversListComponent implements OnInit {
     }));
   }
 
-
+  // tslint:disable-next-line:typedef
   ngOnInit() {
-    this.loadData(this.itemsPerPage, this.currentPage, this.search, this.orderBy);
+    this.loadData();
   }
 
-  loadData(pageSize: number = 10, currentPage: number = 1, search: string = '', orderBy: string = '') {
-    this.itemsPerPage = pageSize;
-    this.currentPage = currentPage;
-    this.search = search;
-    this.orderBy = orderBy;
-
-    this.apiService.getProducts(pageSize, currentPage, search, orderBy).subscribe(
+  // tslint:disable-next-line:typedef
+  loadData(): void {
+    this.driversService.getProducts().subscribe(
       data => {
         if (data.status) {
           this.isLoading = false;
-          this.data = data.data.map(x => {
+          this.originalData = data.data.map(x => {
             return {
-              ...x,
-              img: x.img.replace("/img/", "/img/products/")
+              ...x
             };
           });
-          this.totalItem = data.totalItem;
-          this.totalPage = data.totalPage;
+          this.data = data.data.map(x => {
+            return {
+              ...x
+            };
+          });
           this.setSelectAllState();
         } else {
           this.endOfTheList = true;
@@ -72,18 +74,22 @@ export class DriversListComponent implements OnInit {
     );
   }
 
+  // tslint:disable-next-line:typedef
   changeDisplayMode(mode) {
     this.displayMode = mode;
   }
 
+  // tslint:disable-next-line:typedef
   showAddNewModal() {
     this.addNewModalRef.show();
   }
 
-  isSelected(p: IProduct) {
+  // tslint:disable-next-line:typedef
+  isSelected(p: IDriver) {
     return this.selected.findIndex(x => x.id === p.id) > -1;
   }
-  onSelect(item: IProduct) {
+  // tslint:disable-next-line:typedef
+  onSelect(item: IDriver) {
     if (this.isSelected(item)) {
       this.selected = this.selected.filter(x => x.id !== item.id);
     } else {
@@ -92,6 +98,7 @@ export class DriversListComponent implements OnInit {
     this.setSelectAllState();
   }
 
+  // tslint:disable-next-line:typedef
   setSelectAllState() {
     if (this.selected.length === this.data.length) {
       this.selectAllState = 'checked';
@@ -102,6 +109,7 @@ export class DriversListComponent implements OnInit {
     }
   }
 
+  // tslint:disable-next-line:typedef
   selectAllChange($event) {
     if ($event.target.checked) {
       this.selected = [...this.data];
@@ -111,24 +119,45 @@ export class DriversListComponent implements OnInit {
     this.setSelectAllState();
   }
 
-  pageChanged(event: any): void {
-    this.loadData(this.itemsPerPage, event.page, this.search, this.orderBy);
-  }
-
+  // tslint:disable-next-line:typedef
   itemsPerPageChange(perPage: number) {
-    this.loadData(perPage, 1, this.search, this.orderBy);
+    // this.loadData(perPage, 1, this.search, this.orderBy);
+    this.itemsPerPage = perPage;
   }
 
+  // tslint:disable-next-line:typedef
   changeOrderBy(item: any) {
-    this.loadData(this.itemsPerPage, 1, this.search, item.value);
+    // this.loadData(this.itemsPerPage, 1, this.search, item.value);
+    return this.data.sort(this.dynamicSort(item.value));
   }
 
+  // tslint:disable-next-line:typedef
   searchKeyUp(event) {
     const val = event.target.value.toLowerCase().trim();
-    this.loadData(this.itemsPerPage, 1, val, this.orderBy);
+    this.data = this.originalData.filter( (e)=> {
+      return e.name.toLowerCase().includes(val) ||
+             e.surname.toLowerCase().includes(val);
+    });
   }
 
-  onContextMenuClick(action: string, item: IProduct) {
-    console.log('onContextMenuClick -> action :  ', action, ', item.title :', item.title);
+  // tslint:disable-next-line:typedef
+  onContextMenuClick(action: string, item: IDriver) {
+    console.log('onContextMenuClick -> action :  ', action, ', item.title :', item.name);
+  }
+
+  // tslint:disable-next-line:typedef ban-types
+  dynamicSort(property: string) {
+      let sortOrder = 1;
+      if(property[0] === '-') {
+          sortOrder = -1;
+          property = property.substr(1);
+      }
+      return (a: any, b: any) => {
+          /* next line works with strings and numbers,
+          * and you may want to customize it to your needs
+          */
+          const result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+          return result * sortOrder;
+      };
   }
 }

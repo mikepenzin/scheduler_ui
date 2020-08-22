@@ -1,0 +1,153 @@
+{
+  "status": true,
+  "data": [
+    {
+      "id": 1,
+      "name": "מיכאל",
+      "surname": "פנזין",
+      "role": "DRIVER",
+      "status": "AT_WORK",
+      "statusColor": "primary",
+      "primaryPhoneNumber": "0544958954",
+      "secondaryPhoneNumber": "0535239953",
+      "profilePic": "assets/img/profiles/default-profile-pic.png",
+      "address": "Tabenkin 21 / 6",
+      "city":"Haifa"
+    }, {
+      "id": 2,
+      "name": "ארקדי",
+      "surname": "פנזין",
+      "role": "STEWARD",
+      "status": "SICK_LEAVE",
+      "statusColor": "light",
+      "primaryPhoneNumber": "0544958954",
+      "secondaryPhoneNumber": "0535239953",
+      "profilePic": "assets/img/profiles/default-profile-pic.png",
+      "address": "Tabenkin 21 / 6",
+      "city":"Haifa"
+    }, {
+      "id": 3,
+      "name": "יוסף",
+      "surname": "כהן",
+      "role": "DRIVER",
+      "status": "VACATION",
+      "statusColor": "light",
+      "primaryPhoneNumber": "0544958954",
+      "secondaryPhoneNumber": "0535239953",
+      "profilePic": "assets/img/profiles/default-profile-pic.png",
+      "address": "Tabenkin 21 / 6",
+      "city":"Haifa"
+    },
+    {
+      "id": 4,
+      "name": "מיכאל",
+      "surname": "פנזין",
+      "role": "DRIVER",
+      "status": "AT_WORK",
+      "statusColor": "primary",
+      "primaryPhoneNumber": "0544958954",
+      "secondaryPhoneNumber": "0535239953",
+      "profilePic": "assets/img/profiles/default-profile-pic.png",
+      "address": "Tabenkin 21 / 6",
+      "city":"Haifa"
+    }, {
+      "id": 5,
+      "name": "ארקדי",
+      "surname": "פנזין",
+      "role": "STEWARD",
+      "status": "SICK_LEAVE",
+      "statusColor": "light",
+      "primaryPhoneNumber": "0544958954",
+      "secondaryPhoneNumber": "0535239953",
+      "profilePic": "assets/img/profiles/default-profile-pic.png",
+      "address": "Tabenkin 21 / 6",
+      "city":"Haifa"
+    }, {
+      "id": 6,
+      "name": "יוסף",
+      "surname": "כהן",
+      "role": "DRIVER",
+      "status": "VACATION",
+      "statusColor": "light",
+      "primaryPhoneNumber": "0544958954",
+      "secondaryPhoneNumber": "0535239953",
+      "profilePic": "assets/img/profiles/default-profile-pic.png",
+      "address": "Tabenkin 21 / 6",
+      "city":"Haifa"
+    },
+    {
+      "id": 7,
+      "name": "מיכאל",
+      "surname": "פנזין",
+      "role": "DRIVER",
+      "status": "AT_WORK",
+      "statusColor": "primary",
+      "primaryPhoneNumber": "0544958954",
+      "secondaryPhoneNumber": "0535239953",
+      "profilePic": "assets/img/profiles/default-profile-pic.png",
+      "address": "Tabenkin 21 / 6",
+      "city":"Haifa"
+    }, {
+      "id": 8,
+      "name": "ארקדי",
+      "surname": "פנזין",
+      "role": "STEWARD",
+      "status": "SICK_LEAVE",
+      "statusColor": "light",
+      "primaryPhoneNumber": "0544958954",
+      "secondaryPhoneNumber": "0535239953",
+      "profilePic": "assets/img/profiles/default-profile-pic.png",
+      "address": "Tabenkin 21 / 6",
+      "city":"Haifa"
+    }, {
+      "id": 9,
+      "name": "יוסף",
+      "surname": "כהן",
+      "role": "DRIVER",
+      "status": "VACATION",
+      "statusColor": "light",
+      "primaryPhoneNumber": "0544958954",
+      "secondaryPhoneNumber": "0535239953",
+      "profilePic": "assets/img/profiles/default-profile-pic.png",
+      "address": "Tabenkin 21 / 6",
+      "city":"Haifa"
+    },
+    {
+      "id": 10,
+      "name": "מיכאל",
+      "surname": "פנזין",
+      "role": "DRIVER",
+      "status": "AT_WORK",
+      "statusColor": "primary",
+      "primaryPhoneNumber": "0544958954",
+      "secondaryPhoneNumber": "0535239953",
+      "profilePic": "assets/img/profiles/default-profile-pic.png",
+      "address": "Tabenkin 21 / 6",
+      "city":"Haifa"
+    }, {
+      "id": 11,
+      "name": "ארקדי",
+      "surname": "פנזין",
+      "role": "STEWARD",
+      "status": "SICK_LEAVE",
+      "statusColor": "light",
+      "primaryPhoneNumber": "0544958954",
+      "secondaryPhoneNumber": "0535239953",
+      "profilePic": "assets/img/profiles/default-profile-pic.png",
+      "address": "Tabenkin 21 / 6",
+      "city":"Haifa"
+    }, {
+      "id": 12,
+      "name": "יוסף",
+      "surname": "כהן",
+      "role": "DRIVER",
+      "status": "VACATION",
+      "statusColor": "light",
+      "primaryPhoneNummber": "0544958954",
+      "secondaryPhoneNumber": "0535239953",
+      "profilePic": "assets/img/profiles/default-profile-pic.png",
+      "address": "Tabenkin 21 / 6",
+      "city":"Haifa"
+    }
+  ]
+}

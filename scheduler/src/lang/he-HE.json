@@ -10,7 +10,7 @@
     "home": "דף בית",
     "app": "בית",
     "dashboards": "מידע כללי",
-    "drivers": "ניהול נהגים",
+    "drivers": "ניהול עובדים",
     "cars":"ניהול רכבים",
     "vendors":"ניהול ספקים",
     "scheduler": "סידור עבודה",
@@ -24,10 +24,22 @@
   },
 
   "drivers-list": {
-    "add-new": "הוספת נהג חדש",
-    "add-new-modal-title": "הוספת נהג חדש",
+    "add-new": "הוספת עובד חדש",
+    "add-new-modal-title": "הוספת עובד חדש",
     "orderby": "סידור לפי: ",
-    "product-name": "שם של הנהג"
+    "product-name": "שם של עובד",
+    "title": "ניהול עובדים",
+    "delete":"מחיקה",
+    "name":"שם",
+    "surname":"שם משפחה",
+    "role":"תפקיד",
+    "status":"סטטוס",
+    "AT_WORK":"בעבודה",
+    "SICK_LEAVE":"חופש מחלה",
+    "VACATION":"חופשה",
+    "NOT_EMPLOYED":"לא מועסק",
+    "DRIVER":"נהג",
+    "STEWARD":"סדרן"
   },
 
   "shared-components": {

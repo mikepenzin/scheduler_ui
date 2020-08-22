@@ -1,9 +1,11 @@
 <div class="row">
   <div class="col-12">
-    <app-heading></app-heading>
+    <!-- <app-heading></app-heading> -->
+    <h1>{{ prefix + '.title' | translate }}</h1>
+
     <div class="top-right-button-container text-zero">
       <button type="button" (click)="onAddNewItem()"
-        class="top-right-button btn btn-primary btn-lg mr-1">{{ 'pages.add-new' | translate}}</button>
+        class="top-right-button btn btn-primary btn-lg mr-1">{{ prefix + '.add-new' | translate}}</button>
       <div class="btn-group" dropdown>
         <div class="btn btn-primary btn-lg pl-4 pr-0 check-button">
           <label class="custom-control custom-checkbox mb-0 d-inline-block">
@@ -18,17 +20,17 @@
         </button>
         <ul id="dropdown-split" *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu"
           aria-labelledby="button-split">
-          <li role="menuitem"><a class="dropdown-item" href="javascript:;">{{ 'pages.move' | translate }}</a></li>
-          <li role="menuitem"><a class="dropdown-item" href="javascript:;">{{ 'pages.delete' | translate }}</a></li>
+          <!-- <li role="menuitem"><a class="dropdown-item" href="javascript:;">{{ 'pages.move' | translate }}</a></li> -->
+          <li role="menuitem"><a class="dropdown-item" href="javascript:;">{{ prefix + '.delete' | translate }}</a></li>
         </ul>
       </div>
     </div>
-    <app-breadcrumb></app-breadcrumb>
+    <!-- <app-breadcrumb></app-breadcrumb> -->
     <div class="display-options-container">
       <a class="btn pt-0 pl-0 d-inline-block d-md-none c-pointer" data-toggle="collapse"
         (click)="displayOptionsCollapsed = !displayOptionsCollapsed" role="button" aria-expanded="true"
         aria-controls="displayOptions">
-        {{ 'pages.display-options' | translate}} {{' '}}
+        {{ prefix + 'display-options' | translate}} {{' '}}
         <i class="simple-icon-arrow-down align-middle"></i>
       </a>
       <div id="displayOptions" [collapse]="displayOptionsCollapsed" class="collapse dont-collapse-sm">
@@ -72,12 +74,12 @@
           <div class="float-md-left mr-1 mb-1" dropdown>
             <button id="button-basic" dropdownToggle type="button" class="btn btn-outline-dark btn-xs dropdown-toggle"
               aria-controls="dropdown-basic">
-              {{ 'pages.orderby' | translate }} {{itemOrder.label}} <span class="caret"></span>
+              {{ prefix + '.orderby' | translate }} {{ prefix + '.' + itemOrder.label | translate }} <span class="caret"></span>
             </button>
             <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
               <li role="menuitem" *ngFor="let item of itemOptionsOrders"><a
                   [ngClass]="item.value === itemOrder.value ? 'dropdown-item active' : 'dropdown-item'"
-                  (click)="onChangeOrderBy(item)">{{item.label}}</a></li>
+                  (click)="onChangeOrderBy(item)">{{ prefix + '.' + item.label | translate }}</a></li>
             </ul>
           </div>
         </div>
